@@ -9,6 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
     # Category
     list_display = ('id', 'name', 'url')
     list_display_links = ('name',)
+    prepopulated_fields = {"url" : ("name",)}
 
 
 class ReviewInline(admin.StackedInline):
@@ -42,6 +43,7 @@ class GenreAdmin(admin.ModelAdmin):
     # Genre
     list_display = ('id', 'name', 'url')
     list_display_links = ('name',)
+    prepopulated_fields = {"url" : ("name",)}
 
 
 @admin.register(Actor)
