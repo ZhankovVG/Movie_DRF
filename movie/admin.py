@@ -73,7 +73,7 @@ class MovieShotsAdmin(admin.ModelAdmin):
 @admin.register(Reting)
 class RetingAdmin(admin.ModelAdmin):
     # Reting
-    list_display = ('ip', 'star')
+    list_display = ('ip', 'star', 'movie')
 
 
 admin.site.register(RatingsStar)
