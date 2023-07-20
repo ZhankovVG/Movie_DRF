@@ -105,7 +105,12 @@ class Reting(models.Model):
     # Reting
     ip = models.CharField('IP адресс', max_length=20)
     star = models.ForeignKey(RatingsStar, on_delete=models.CASCADE, verbose_name='звезда')
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, verbose_name='фильм')
+    movie = models.ForeignKey(
+        Movie, 
+        on_delete=models.CASCADE, 
+        verbose_name='фильм',
+        related_name='rating'
+        )
 
     def __str__(self):
         return f'{self.star} - {self.movie}'
