@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics
 
 from .models import Movie
 from .serializers import *
@@ -44,3 +45,15 @@ class AddStarRatingView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+        
+
+class ActorListView(generics.ListAPIView):
+    # list actors
+    queryset = Actor.objects.all()
+    serializer_class = ActorListSerializer
+
+
+class ActorDetailView(generics.RetrieveAPIView):
+    # List of actors and directors
+    queryset = Actor.objects.all()
+    serializer_class = ActorDetailSerializer
