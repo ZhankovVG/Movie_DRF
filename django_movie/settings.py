@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'movie',
     'ckeditor',
     'ckeditor_uploader',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,9 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTERBACKENDS' : (
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ),
+}
