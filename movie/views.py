@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Movie
 from .serializers import *
 from .service import get_client_ip, MovieFilter
@@ -10,6 +10,7 @@ class MovieListView(generics.ListAPIView):
     serializer_class = MovieListSerializer
     filter_backends = (DjangoFilterBackend, )
     filterset_class = MovieFilter
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         movies = Movie.objects.filter(draft=False).annotate(
